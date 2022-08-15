@@ -55,11 +55,11 @@ Input data for the above example problem is available in `Input` folder.
 ## Usage
 
 The usage of the code is quite simple. After preparing all input data and put them in `Input` folder, run the following command in a terminal:
-
+```
 python halm.py
-
+```
 The results can be then found in `Output` folder. Run the following command to visualize the results:
-
+```
 python visualization.py
-
-This visualization tool is for a relatively small dataset (e.g. the example problem). Other softwares may be used for large datasets.
+```
+Figures are exported to `Plots` folder. This visualization tool is for a relatively small dataset (e.g. the example problem). Other softwares may be used for large datasets.
