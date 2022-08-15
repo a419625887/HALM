@@ -40,7 +40,7 @@ Input data for the above example problem is available in `Input` folder.
 ### Input data
 * `top_surface_point.txt`: Points that define the top bedding surface. Columns are point ID, X, Y, Z coordinates
 * `bot_surface_point.txt`: Points that define the bottom bedding surface. Columns are point ID, X, Y, Z coordinates
-* `triangle_faces.txt`: IDs of points that compose each triangles on the top or bottom bedding surface. Columns are number of point, point ID, point ID, point ID
+* `triangle_faces.txt`: IDs of points that define each triangle on the top or bottom bedding surface. Columns are number of point, point ID, point ID, point ID
 * `domain_discretization.txt`: 2D grid that defines the model horizontal resolution. Columns are 2Dgrid ID, X, Y, Z of the top surface at the XY location, Z of the bottom surface at the XY location
 * `Logs.csv`: Well log data consist of well names, well locations, well datum, and lithology at depths.
 
@@ -53,3 +53,13 @@ Input data for the above example problem is available in `Input` folder.
 * `log_intersection.txt`: Intersection points between each well log and the bedding surfaces. For visualization only
 
 ## Usage
+
+The usage of the code is quite simple. After preparing all input data and put them in `Input` folder, run the following command in a terminal:
+
+python halm.py
+
+The results can be then found in `Output` folder. Run the following command to visualize the results:
+
+python visualization.py
+
+This visualization tool is for a relatively small dataset (e.g. the example problem). Other softwares may be used for large datasets.
