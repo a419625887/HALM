@@ -63,3 +63,7 @@ The results can be then found in `Output` folder. Run the following command to v
 python visualization.py
 ```
 Figures are exported to `Plots` folder. This visualization tool is for a relatively small dataset (e.g. the example problem). Other softwares may be used for large datasets.
+
+##
+
+MIT
