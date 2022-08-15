@@ -1,1 +1,1 @@
-# HALM
+# Horizon-assisted lithologic modeling
