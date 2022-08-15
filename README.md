@@ -11,9 +11,11 @@ First, the bedding surfaces and well logs are transformed into a non-dipping dom
 <img src="/Plots/Nondip_domain_view.png" width="500">
 
 Then, an indicator natural neighbor interpolation is performed in the non-dipping domain given the well log data, which produces a litholgic modeling in the non-dipping domain.
+
 <img src="/Plots/Nondip_lithology_view.png" width="500">
 
-Finally, the interpolated lithology is transformed back to the orginal domain.
+Finally, the interpolated lithology is transformed back to the orginal domain. As a result, the dip variations of modelled lithofacies follow the curvature of the horizons above and below.
+
 <img src="/Plots/Dip_lithology_view.png" width="500">
 
 ## Requirements
@@ -33,8 +35,21 @@ The following requirements can be directly installed from PyPi:
 
 ## Data description
 
-Data for the above example problem is available in `Input` folder.
+Input data for the above example problem is available in `Input` folder.
 
 ### Input data
-* `top_surface_point.txt`: Points the define the top bedding surface. Columns are point ID, X, Y, Z coordinates
-* 
+* `top_surface_point.txt`: Points that define the top bedding surface. Columns are point ID, X, Y, Z coordinates
+* `bot_surface_point.txt`: Points that define the bottom bedding surface. Columns are point ID, X, Y, Z coordinates
+* `triangle_faces.txt`: IDs of points that compose each triangles on the top or bottom bedding surface. Columns are number of point, point ID, point ID, point ID
+* `domain_discretization.txt`: 2D grid that defines the model horizontal resolution. Columns are 2Dgrid ID, X, Y, Z of the top surface at the XY location, Z of the bottom surface at the XY location
+* `Logs.csv`: Well log data consist of well names, well locations, well datum, and lithology at depths.
+
+### Output data
+* `restored_top_point_data.txt`: Points that define the transformed top bedding surface in the non-dipping domain. Columns are point ID, X, Y, Z coordinates
+* `restored_bot_point_data.txt`: Points that define the transformed bottom bedding surface in the non-dipping domain. Columns are point ID, X, Y, Z coordinates
+* `Interpolation_nondipping_results.txt`: 3D grid with lithofacies in the non-dipping domain. Columns are 2Dgrid ID, X, Y, Z, lithofacies(binary)
+* `grid_lithology.txt`: 3d grid with lithofacies in the original domain. Columns are 2Dgrid ID, X, Y, Z, lithofacies(binary)
+* `Mapped_logs.csv`: Well log data in terms of lithologic sequences in the non-dipping domain. Columns are well name, X, Y, Z, lithology
+* `log_intersection.txt`: Intersection points between each well log and the bedding surfaces. For visualization only
+
+## Usage
