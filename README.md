@@ -48,10 +48,10 @@ Input data should be put in `Input` folder. Output of the code would be saved in
 * `Logs.csv`: Well log data consist of well names, well locations, well datum, and lithology at depths.
 
 ### Output data
-* `restored_top_point_data.txt`: Nodal points of the triangular mesh that represents the transformed top bedding surface in the non-dipping domain. Columns are point ID, X, Y, Z coordinates.
-* `restored_bot_point_data.txt`: Nodal points of the triangular mesh that represents the transformed bottom bedding surface in the non-dipping domain. Columns are point ID, X, Y, Z coordinates.
+* `restored_top_point_data.txt`: Nodal points of the triangular mesh that represents the transformed top bedding surface in the non-dipping domain. Columns are point ID, X, Y, Z coordinates. The point ID corresponds to that in `top_surface_point.txt`.
+* `restored_bot_point_data.txt`: Nodal points of the triangular mesh that represents the transformed bottom bedding surface in the non-dipping domain. Columns are point ID, X, Y, Z coordinates. The point ID corresponds to that in `bot_surface_point.txt`.
 * `grid_lithology.txt`: 3D grid with lithofacies in the original domain. This is the final lithologic model. Columns in the file are 2Dgrid ID, X, Y, Z, lithofacies (binary). This 2D grid is the same as that specified in `domain_discretization.txt`.
-* `Interpolation_nondipping_results.txt`: 3D cells with lithofacies in the non-dipping domain. Columns are 2Dcell ID, X, Y, Z, lithofacies (binary). This file is only for visualizatiton.
+* `Interpolation_nondipping_results.txt`: 3D cells with lithofacies in the non-dipping domain. Columns are cell ID, X, Y, Z, lithofacies (binary). This file is only for visualizatiton.
 * `Mapped_logs.csv`: Well log data in terms of lithologic sequences in the non-dipping domain. Columns are well name, X, Y, Z, lithology. For check and visualization only.
 * `log_intersection.txt`: Intersection points between each well log and the bedding surfaces. For visualization only.
 
