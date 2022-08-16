@@ -4,7 +4,7 @@ This is a python implementation of the Horizon-assisted Lithologic Modeling (HAL
 
 ## Example problem
 
-This example problem is used to demonstrate procedures of the HALM method. In this problem, we try to model lithofacies in the domain bounded by two horizons (bedding surfaces) using lithologic data in five synthetic well logs. The well logs contain bimodal lithology, shown in blue and yellow. The green portion is not constrained by the two horizons, and thus, is not used for modeling.
+This example problem is used to demonstrate procedures of the HALM method. In this problem, we try to model lithofacies in the domain bounded by two horizons (bedding surfaces) using lithological data in five synthetic well logs. The well logs contain bimodal lithology, shown in blue and yellow. The green portion of logs is outside the domain, and thus, is not used for modeling.
 
 <img src="/Plots/Dip_domain_view.png" width="500">
 
@@ -18,6 +18,8 @@ Then, an indicator natural neighbor interpolation is performed in the non-dippin
 Finally, the interpolated lithology is transformed back to the orginal domain. As a result, the dip variations of modelled lithofacies follow the curvature of the horizons above and below.
 
 <img src="/Plots/Dip_lithology_view.png" width="500">
+
+Input data for this example problem is available in `Input` folder.
 
 ## Requirements
 
@@ -36,26 +38,28 @@ The following requirements can be directly installed from PyPi:
 
 ## Data description
 
-Input data for the above example problem is available in `Input` folder.
+Input data should be put in `Input` folder. Output of the code would be saved in `Output` folder.
 
 ### Input data
-* `top_surface_point.txt`: Points that define the top bedding surface. Columns are point ID, X, Y, Z coordinates
-* `bot_surface_point.txt`: Points that define the bottom bedding surface. Columns are point ID, X, Y, Z coordinates
-* `triangle_faces.txt`: IDs of points that define each triangle on the top or bottom bedding surface. Columns are number of point, 1st point ID, 2nd point ID, 3rd point ID
-* `domain_discretization.txt`: 2D grid that defines the model horizontal resolution. Columns are 2Dgrid ID, X, Y, Z of the top surface at the XY location, Z of the bottom surface at the XY location
+* `top_surface_point.txt`: Nodal points of the triangular mesh that represents the top bedding surface. Columns are point ID, X, Y, Z coordinates.
+* `bot_surface_point.txt`: Nodal points of the triangular mesh that represents the bottom bedding surface. Columns are point ID, X, Y, Z coordinates. The point ID, X, and Y, in this file is identical to those in `top_surface_point.txt`, only Z values are different.
+* `triangle_faces.txt`: IDs of points that define each triangle face on the top or bottom bedding surface. Columns are number of point (must be 3), 1st point ID, 2nd point ID, 3rd point ID.
+* `domain_discretization.txt`: 2D grid that defines the horizontal resolution of lithologic model. Columns are 2Dgrid ID, X, Y, Z of the top surface at the XY location, Z of the bottom surface at the XY location.
 * `Logs.csv`: Well log data consist of well names, well locations, well datum, and lithology at depths.
 
 ### Output data
-* `restored_top_point_data.txt`: Points that define the transformed top bedding surface in the non-dipping domain. Columns are point ID, X, Y, Z coordinates
-* `restored_bot_point_data.txt`: Points that define the transformed bottom bedding surface in the non-dipping domain. Columns are point ID, X, Y, Z coordinates
-* `Interpolation_nondipping_results.txt`: 3D grid with lithofacies in the non-dipping domain. Columns are 2Dgrid ID, X, Y, Z, lithofacies (binary)
-* `grid_lithology.txt`: 3D grid with lithofacies in the original domain. This is the final lithologic model. Columns in the file are 2Dgrid ID, X, Y, Z, lithofacies (binary). This 2D grid the same as that specified in `domain_discretization.txt`
-* `Mapped_logs.csv`: Well log data in terms of lithologic sequences in the non-dipping domain. Columns are well name, X, Y, Z, lithology
+* `restored_top_point_data.txt`: Nodal points of the triangular mesh that represents the transformed top bedding surface in the non-dipping domain. Columns are point ID, X, Y, Z coordinates.
+* `restored_bot_point_data.txt`: Nodal points of the triangular mesh that represents the transformed bottom bedding surface in the non-dipping domain. Columns are point ID, X, Y, Z coordinates.
+* `grid_lithology.txt`: 3D grid with lithofacies in the original domain. This is the final lithologic model. Columns in the file are 2Dgrid ID, X, Y, Z, lithofacies (binary). This 2D grid is the same as that specified in `domain_discretization.txt`.
+* `Interpolation_nondipping_results.txt`: 3D cells with lithofacies in the non-dipping domain. Columns are 2Dcell ID, X, Y, Z, lithofacies (binary). This file is only for visualizatiton.
+* `Mapped_logs.csv`: Well log data in terms of lithologic sequences in the non-dipping domain. Columns are well name, X, Y, Z, lithology. For check and visualization only.
 * `log_intersection.txt`: Intersection points between each well log and the bedding surfaces. For visualization only.
 
 ## Usage
 
-The usage of the code is quite simple. After preparing all input data and putting them in `Input` folder, run the following command in a terminal:
+The code is separated into several python scripts. Each script corresponds to a distinctive step of the HALM method. The main script is `halm.py`. Other scripts would be called as the main script is running. 
+
+Usage of the code is quite simple. After preparing all input data and putting them in `Input` folder, run the following command in a terminal:
 ```
 python halm.py
 ```
