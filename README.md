@@ -4,7 +4,7 @@ This is a python implementation of the Horizon-assisted Lithologic Modeling (HAL
 
 ## Example problem
 
-This example problem is used to demonstrate procedures of the HALM method. In this problem, we try to model lithofacies in the domain bounded by two horizons (bedding surfaces) using lithological data in five synthetic well logs. The well logs contain bimodal lithology, shown in blue and yellow. The green portion of logs is outside the domain, and thus, is not used for modeling.
+This example problem is used to demonstrate procedures of the HALM method. In this problem, we try to model lithofacies in the domain bounded by two horizons (bedding surfaces) using lithological data in five synthetic well logs. The two horizons are represented by triangular meshes. The well logs contain bimodal lithology, shown in blue and yellow. The green portion of logs is outside the domain, and thus, is not used for modeling.
 
 <img src="/Plots/Dip_domain_view.png" width="500">
 
