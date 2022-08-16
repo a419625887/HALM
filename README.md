@@ -19,7 +19,7 @@ Finally, the interpolated lithology is transformed back to the orginal domain. A
 
 <img src="/Plots/Dip_lithology_view.png" width="500">
 
-Input data for this example problem is available in `Input` folder. See [Requirements](## Requirement) and [Usage](## Usage) to reproduce the above results.
+Input data for this example problem is available in `Input` folder. See [Requirements](##-Requirement) and [Usage](##-Usage) to reproduce the above results.
 
 ## Requirements
 
