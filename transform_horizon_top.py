@@ -182,5 +182,5 @@ for i in row_face_coll[0:strtrow][::-1]:
             
 
 # Output
-np.savetxt('Output/restored_top_point_data.txt',np.array(pt_data),
-           header='New vertex id, X, Y, Z_meter')
+np.savetxt('Output/restored_top_point_data.txt',np.array(pt_data), fmt = '%d %f %f %f',
+           header='Point ID, X, Y, Z')
