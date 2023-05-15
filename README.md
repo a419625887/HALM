@@ -15,7 +15,7 @@ Then, an indicator natural neighbor interpolation is performed in the non-dippin
 
 <img src="/Demo/Nondip_lithology_view.png" width="500">
 
-Finally, the interpolated lithofacies is transformed back to the orginal domain. As a result, the dip variations of modelled lithofacies conform to the horizons above and below.
+Finally, the interpolated lithofacies is transformed back to the orginal domain. As a result, the dip variations of modeled lithofacies conform to the horizons above and below.
 
 <img src="/Demo/Dip_lithology_view.png" width="500">
 
@@ -37,7 +37,7 @@ The following requirements can be directly installed from PyPi:
 
 ## Examples
 
-There are two examples included in this repository. In the `Example1`, lithofacies as results of uniform sedimentation is modeled in a folded structure, as shwon in the Demonstration. The `Example2` is to construct a lithologic model with more complicated deposition patterns within a syncline structure.
+There are two examples included in this repository. In the `Example1`, lithofacies as results of uniform sedimentation is modeled in a folded structure, as shown in the Demonstration. The `Example2` is to construct a lithologic model with more complicated deposition patterns in a syncline structure.
 
 ## Data description
 
