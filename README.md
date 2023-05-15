@@ -1,25 +1,24 @@
 # Horizon-assisted Lithologic Modeling
 
-This is a python implementation of the Horizon-assisted Lithologic Modeling (HALM) method. The HALM method aims to contruct high-fidelity litholgic model given well log data and dip variations of horizons (bedding surfaces). The HALM method involves horizon restoration, discretization, and interpolation.
+This is a python implementation of the Horizon-assisted Lithologic Modeling (HALM) method. The HALM method aims to contruct high-fidelity litholgic model given well log data and structures of horizons (bedding surfaces). The HALM method involves horizon restoration, discretization, and interpolation.
 
-## Example problem
+## Demonstration
 
-This example problem is used to demonstrate procedures of the HALM method. In this problem, we try to model lithofacies in the domain bounded by two horizons (bedding surfaces) using lithological data in five synthetic well logs. The two horizons are represented by triangular meshes. The well logs contain bimodal lithology, shown in blue and yellow. The green portion of logs is outside the domain, and thus, is not used for modeling.
+The HALM method needs horizons and well log data as input. As shown in the figure below, the model domain is bounded by two horizons. The horizons are represented by triangular meshes. There are five well logs containing bimodal lithology, shown in blue and yellow. The green portion of logs is outside the domain, and thus, is not used for modeling.
 
-<img src="/Plots/Dip_domain_view.png" width="500">
+<img src="/Demo/Dip_domain_view.png" width="500">
 
-First, the bedding surfaces and well logs are transformed into a non-dipping domain through a horizon restoration technique. The transfomred surfaces are placed horizontally and the transformed logs can be slightly inclined.
-<img src="/Plots/Nondip_domain_view.png" width="500">
+First, the horizons and well logs are transformed into a non-dipping domain through a flexural restoration technique. The transformed surfaces are placed horizontally and the transformed logs can be slightly inclined.
+<img src="/Demo/Nondip_domain_view.png" width="500">
 
 Then, an indicator natural neighbor interpolation is performed in the non-dipping domain given the well log data, which produces a litholgic modeling in the non-dipping domain.
 
-<img src="/Plots/Nondip_lithology_view.png" width="500">
+<img src="/Demo/Nondip_lithology_view.png" width="500">
 
-Finally, the interpolated lithology is transformed back to the orginal domain. As a result, the dip variations of modelled lithofacies follow the curvature of the horizons above and below.
+Finally, the interpolated lithofacies is transformed back to the orginal domain. As a result, the dip variations of modelled lithofacies conform to the horizons above and below.
 
-<img src="/Plots/Dip_lithology_view.png" width="500">
+<img src="/Demo/Dip_lithology_view.png" width="500">
 
-Input data for this example problem is available in `Input` folder. See [Requirements](##Requirement) and [Usage](##Usage) to reproduce the above results.
 
 ## Requirements
 
@@ -35,6 +34,10 @@ The following requirements can be directly installed from PyPi:
 * shapely
 * pyvista
 * metpy
+
+## Examples
+
+There are two examples included in this repository. In the `Example1`, lithofacies as results of uniform sedimentation is modeled in a folded structure, as shwon in the Demonstration. The `Example2` is to construct a lithologic model with more complicated deposition patterns within a syncline structure.
 
 ## Data description
 
@@ -57,17 +60,17 @@ Input data should be put in `Input` folder. Output of the code would be saved in
 
 ## Usage
 
-The code is separated into several python scripts. Each script corresponds to a distinctive step of the HALM method. The main script is `halm.py`. Other scripts would be called as the main script is running. 
+The HALM code is in `Source` folder. The code is separated into several python scripts. Each script corresponds to a distinctive step of the HALM method. The main script is `halm.py`. Other scripts is called automatically as the main script is running. 
 
-Usage of the code is quite simple. After preparing all input data and putting them in `Input` folder, run the following command in a terminal:
+Usage of the code is quite simple. After putting all python scripts from the `Source` into the same directory as the `Input` folder. run the following command in a terminal:
 ```
 python halm.py
 ```
-The results can be then found in `Output` folder. Run the following command to visualize the input data and results:
+The results can be then found in `Output` folder. To visualize the model results, put all python scripts from the `Visual_tools` into the same directory as the `Output` folder, then run the following command:
 ```
 python visualization.py
 ```
-Figures are exported to `Plots` folder. This visualization tool is for a relatively small dataset (e.g. the example problem). Other softwares may be used to visualize large datasets.
+Figures are exported to `Plots` folder. This visualization tool is for a relatively small dataset (e.g. the example problems). Other softwares may be used to visualize large datasets.
 
 ## License
 
