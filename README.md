@@ -1,6 +1,6 @@
 # Horizon-assisted Lithologic Modeling
 
-This is a python implementation of the Horizon-assisted Lithologic Modeling (HALM) method which is proposed by Yang et al. (2024). The HALM method aims to contruct high-fidelity litholgic model given well log data and structures of horizons (bedding surfaces). The HALM method involves horizon restoration, domain transformation, and lithologic modeling.
+This is a python implementation of the Horizon-assisted Lithologic Modeling (HALM) method which is proposed by Yang et al. (2024). The HALM method aims to contruct high-fidelity litholgic model given well log data and structures of horizons (bedding surfaces). The HALM method involves horizon restoration, domain transformation, and lithologic modeling. The python codes in this repository run the HALM method in a serial mode.
 
 ## Demonstration
 
