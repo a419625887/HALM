@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import voxel_plot as ve
 
 #
-gridgeo=np.loadtxt('Output/grid_lithology.txt', skiprows=1)
+gridgeo=np.loadtxt('Output/Geo-model.dat')
 xx = np.unique(gridgeo[:, 1])
 res = xx[1] - xx[0] # horizontal resolution of grid
 
@@ -55,4 +55,5 @@ ax.set_zlabel('Z', fontsize=14)
 ax.tick_params(axis='x',labelsize=14)
 ax.tick_params(axis='y',labelsize=14)
 ax.tick_params(axis='z',labelsize=14)
+
 fig1.savefig('Plots/Dip_lithology_view.png', dpi=500)

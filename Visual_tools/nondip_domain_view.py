@@ -12,9 +12,10 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
 #   
-with open('Output/Mapped_logs.csv', newline='') as f:
+with open('Output/Logs_nondip.csv', newline='') as f:
     reader = csv.reader(f,delimiter=',')
-    mapped_elogs = list(reader)[1::]
+    mapped_elogs = list(reader)
+    
 # Organized elog data
 log_name=[]
 for i in mapped_elogs:
@@ -76,4 +77,5 @@ ax.add_collection3d(collection)
 collection = Poly3DCollection(face_pt_bot, linewidths=1, alpha=0.2)
 collection.set_edgecolor('c')
 ax.add_collection3d(collection)
+
 fig1.savefig('Plots/Nondip_domain_view.png', dpi=500)
