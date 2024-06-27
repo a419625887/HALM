@@ -11,7 +11,7 @@ The HALM method needs horizon (surface) data and well log data as input. As show
 First, the horizons and well logs are transformed into a non-dipping domain through a flexural restoration technique. The transformed surfaces are placed horizontally and the transformed logs can be slightly inclined.
 <img src="/Demo/Nondip_domain_view.png" width="500">
 
-Then, an indicator interpolation approach is performed in the non-dipping domain given the well log data, which produces a litholgic model in the non-dipping domain.
+Then, an indicator interpolation approach is performed in the non-dipping domain given the well log data, which produces a lithologic model in the non-dipping domain.
 
 <img src="/Demo/Nondip_lithology_view.png" width="500">
 
