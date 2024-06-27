@@ -90,6 +90,8 @@ lmg_layer_elev = lmg_obj.layer_elev
 
 np.savetxt('Output/Grid2D_nondip.txt', lmg_unstru_grid_2d, fmt = '%d %.2f %.2f')
 
+# Can use either "Nearest_neighbor" or "Natural_neighbor" method here for lithologic modeling.
+# However, "Natural_neighbor" is computationally intensive, which may require parallel computing.
 litho_upscale = lmg_obj.model_3D(method = 'Nearest_neighbor')
 
 geomodel_nondip = np.zeros((len(litho_upscale), 3))
